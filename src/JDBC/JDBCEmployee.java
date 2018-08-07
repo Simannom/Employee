@@ -43,7 +43,7 @@ public class JDBCEmployee {
             e.printStackTrace();
         }
     }
-    public static void update  (String query) throws SQLException{
+    public static void update (String query) throws SQLException{
         if (con == null || stmt == null) throw new SQLException();
         try {
             rs = stmt.executeQuery(query);
@@ -64,13 +64,13 @@ public class JDBCEmployee {
 
 
         try {
-            //Р—Р°РіСЂСѓР¶Р°РµРј РґСЂР°Р№РІРµСЂ
+            //Загружаем драйвер
             Class.forName("org.postgresql.Driver");
-            System.out.println("Р”СЂР°Р№РІРµСЂ РїРѕРґРєР»СЋС‡РµРЅ");
+            System.out.println("Драйвер подключен");
 
-            //РЎРѕР·РґР°С‘Рј СЃРѕРµРґРёРЅРµРЅРёРµ
+            //Создаём соединение
             con = DriverManager.getConnection(url, user, password);
-            System.out.println("РЎРѕРµРґРёРЅРµРЅРёРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅРѕ");
+            System.out.println("Соединение установлено");
 
             // getting Statement object to execute query
             stmt = con.createStatement();
